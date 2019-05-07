@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">J\'ai la main verte</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_navigation">navigationActivity</string>
+    <string name="title_activity_navigation">J\ai la main verte</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="add_title">Ajouter une plante</string>
+    <string-array name="plants">
+        <item>Rose</item>
+        <item>Geranium</item>
+        <item>Jacynthe</item>
+        <item>Orchidee</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="plant_name_edit_placeholder">Nom de la plante</string>
 </resources>

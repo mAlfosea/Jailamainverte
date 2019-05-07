@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/plant_bloc_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:cardBackgroundColor="@color/grey">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView android:id="@+id/plantImg"
+                                                      android:layout_width="@dimen/plant_img_size"
+                                                      android:layout_height="@dimen/plant_img_size"
+                                                      app:layout_constraintTop_toTopOf="parent"
+                                                      app:layout_constraintLeft_toLeftOf="parent"
+                                                      app:layout_constraintBottom_toBottomOf="parent"
+                                                      android:background="@color/green"
+                                                      android:layout_margin="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="@dimen/plant_icon_size"
+                                                      android:layout_height="@dimen/plant_icon_size"
+                                                      app:layout_constraintLeft_toLeftOf="@+id/plantImg"
+                                                      app:layout_constraintRight_toRightOf="@id/plantImg"
+                                                      app:layout_constraintTop_toTopOf="@id/plantImg"
+                                                      app:layout_constraintBottom_toTopOf="@id/plantImg"
+                                                      android:background="@drawable/ic_plant_mood_socle_img"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="@dimen/plant_icon_size"
+                                                      android:layout_height="@dimen/plant_icon_size"
+                                                      app:layout_constraintLeft_toLeftOf="@+id/plantImg"
+                                                      app:layout_constraintRight_toRightOf="@id/plantImg"
+                                                      app:layout_constraintTop_toTopOf="@id/plantImg"
+                                                      app:layout_constraintBottom_toTopOf="@id/plantImg"
+                                                      android:background="@drawable/ic_mood_happy"/>
+
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/plantName"
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     app:layout_constraintTop_toTopOf="@id/plantImg"
+                                                     app:layout_constraintLeft_toRightOf="@id/plantImg"
+                                                     android:layout_marginLeft="@dimen/spacing_20"
+                                                     android:text="Géronimo"
+                                                     android:textSize="@dimen/text_size_24"
+                                                     android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantEditNameButton"
+                                                        android:layout_width="@dimen/modify_infos_button_size"
+                                                        android:layout_height="@dimen/modify_infos_button_size"
+                                                        app:layout_constraintTop_toTopOf="@id/plantName"
+                                                        app:layout_constraintLeft_toRightOf="@id/plantName"
+                                                        android:layout_marginLeft="@dimen/spacing_20"
+                                                        android:background="@drawable/ic_plant_name_edit_img"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/plantFamily"
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     app:layout_constraintTop_toBottomOf="@id/plantName"
+                                                     app:layout_constraintLeft_toRightOf="@id/plantImg"
+                                                     android:layout_marginLeft="@dimen/spacing_20"
+                                                     android:layout_marginTop="@dimen/spacing_5"
+                                                     android:text="Géranium"
+                                                     android:textSize="@dimen/text_size_16"
+                                                     android:textStyle="italic"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantEditFamilyButton"
+                                                        android:layout_width="@dimen/modify_infos_button_size"
+                                                        android:layout_height="@dimen/modify_infos_button_size"
+                                                        app:layout_constraintTop_toTopOf="@id/plantFamily"
+                                                        app:layout_constraintBottom_toBottomOf="@id/plantFamily"
+                                                        app:layout_constraintLeft_toRightOf="@id/plantFamily"
+                                                        android:layout_marginLeft="@dimen/spacing_20"
+                                                        android:background="@drawable/ic_plant_family_change_img"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:id="@+id/plantNextArrosageImg"
+                                                      android:layout_width="@dimen/modify_infos_button_size"
+                                                      android:layout_height="@dimen/modify_infos_button_size"
+                                                      app:layout_constraintTop_toBottomOf="@id/plantFamily"
+                                                      app:layout_constraintLeft_toRightOf="@id/plantImg"
+                                                      android:layout_marginLeft="@dimen/spacing_20"
+                                                      android:layout_marginTop="@dimen/spacing_10"
+                                                      android:background="@drawable/ic_plant_arrosage_img"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/plantNextArrosageText"
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     app:layout_constraintLeft_toRightOf="@id/plantNextArrosageImg"
+                                                     app:layout_constraintTop_toTopOf="@id/plantNextArrosageImg"
+                                                     app:layout_constraintBottom_toBottomOf="@id/plantNextArrosageImg"
+                                                     android:layout_marginLeft="@dimen/spacing_10"
+                                                     android:paddingLeft="@dimen/spacing_15"
+                                                     android:paddingRight="@dimen/spacing_15"
+                                                     android:paddingTop="@dimen/spacing_10"
+                                                     android:paddingBottom="@dimen/spacing_10"
+                                                     android:text="Mardi 20h"
+                                                     android:background="@drawable/ic_plant_next_arrosage_socle_img"
+                                                     android:gravity="center_vertical"/>
+        <!--android:drawableLeft="@drawable/ic_plant_arrosage_img"
+        android:drawablePadding="@dimen/spacing_10"!-->
+
+        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantArrosageButton"
+                                                        android:layout_width="@dimen/plant_arrosage_button"
+                                                        android:layout_height="@dimen/plant_arrosage_button"
+                                                        app:layout_constraintRight_toRightOf="parent"
+                                                        app:layout_constraintTop_toTopOf="parent"
+                                                        app:layout_constraintBottom_toBottomOf="parent"
+                                                        android:layout_marginRight="@dimen/spacing_20"
+                                                        android:background="@drawable/ic_plant_arrosage_button_img"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:id="@+id/plantMoreButton"
+                                                      android:layout_width="@dimen/spacing_40"
+                                                      android:layout_height="@dimen/spacing_40"
+                                                      app:layout_constraintTop_toBottomOf="@id/plantArrosageButton"
+                                                      app:layout_constraintBottom_toBottomOf="parent"
+                                                      app:layout_constraintLeft_toLeftOf="@id/plantArrosageButton"
+                                                      app:layout_constraintRight_toRightOf="@id/plantArrosageButton"
+                                                      android:background="@drawable/ic_plant_more_button"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
