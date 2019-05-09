@@ -9,6 +9,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="add_title">Ajouter une plante</string>
     <string-array name="plants">
+        <item>Aucune</item>
         <item>Rose</item>
         <item>Geranium</item>
         <item>Jacynthe</item>
@@ -19,4 +20,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plant_name_edit_placeholder">Nom de la plante</string>
     <string name="family_title">Famille:</string>
+    <string name="last_watering_title">Dernier arrosage</string>
+    <string name="watering_cycle_text">Arroser tous les:</string>
+    <string name="watering_cycle_days">jour(s)</string>
+    <string name="add_plant_button_text">AJOUTER</string>
+    <string name="plant_name_edit_error">Tu dois entrer un nom :(</string>
+    <string name="plant_family_edit_error">Il lui faut une famille :(</string>
+    <string name="plant_cycle_edit_error">Il lui faut un cycle d\'arrosage :(</string>
 </resources>

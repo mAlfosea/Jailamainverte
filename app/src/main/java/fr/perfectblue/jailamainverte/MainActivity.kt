@@ -8,15 +8,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.fragment.app.Fragment
 import fr.perfectblue.jailamainverte.Fragment.MainFragment
+import fr.perfectblue.jailamainverte.model.replaceFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.app_bar_navigation.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
-        const val NAME = "NAME"
+        const val NAME = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +25,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         replaceFragment(MainFragment())
 
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener { _ ->
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()*/
+
             var intent: Intent = Intent(this, AddActivity::class.java)
-            intent.putExtra(NAME, "Géronimo")
+            //intent.putExtra(NAME, "Géronimo")
             startActivity(intent)
         }
 
@@ -40,10 +41,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-    }
-
-    private fun replaceFragment(frag: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.mainFragment, frag).commit()
     }
 
     override fun onBackPressed() {
