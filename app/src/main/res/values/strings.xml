@@ -16,6 +16,15 @@
         <item>Orchidee</item>
     </string-array>
 
+    <string-array name="userPlants">
+        <item>Geronimo</item>
+        <item>Tuly</item>
+        <item>Rosie</item>
+        <item>Lily</item>
+        <item>Bobby</item>
+        <item>Billy</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plant_name_edit_placeholder">Nom de la plante</string>

@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import fr.perfectblue.jailamainverte.Fragment.MainFragment
+import fr.perfectblue.jailamainverte.Fragment.PlantlistFragment
+import fr.perfectblue.jailamainverte.Fragment.UserPlantsFragment
 import fr.perfectblue.jailamainverte.model.replaceFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.app_bar_navigation.*
@@ -23,12 +25,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation)
         setSupportActionBar(toolbar)
-        replaceFragment(MainFragment())
+        replaceFragment(UserPlantsFragment())
 
         fab.setOnClickListener { _ ->
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()*/
-
             var intent: Intent = Intent(this, AddActivity::class.java)
             //intent.putExtra(NAME, "Géronimo")
             startActivity(intent)
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-
         nav_view.setNavigationItemSelectedListener(this)
     }
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.navigation, menu)
+        menuInflater.inflate(R.menu.botton_menu, menu)
         return true
     }
 

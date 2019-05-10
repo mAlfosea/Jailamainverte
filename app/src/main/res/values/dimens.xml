@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="design_fab_image_size" tools:override="true">48dp</dimen>
-    <dimen name="plant_bloc_size">150dp</dimen>
-    <dimen name="plant_img_size">100dp</dimen>
-    <dimen name="plant_icon_size">48dp</dimen>
+   <!-- <dimen name="fab_margin">16dp</dimen>
+    <dimen name="design_fab_image_size" tools:override="true">48dp</dimen>-->
+    <dimen name="plant_bloc_size">110dp</dimen>
+    <dimen name="plant_img_size">75dp</dimen>
+    <dimen name="plant_icon_size">36dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -11,7 +11,7 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="text_size_24">24sp</dimen>
     <dimen name="spacing_20">20dp</dimen>
-    <dimen name="modify_infos_button_size">30dp</dimen>
+    <dimen name="modify_infos_button_size">24dp</dimen>
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="spacing_10">10dp</dimen>
     <dimen name="next_arrosage_box_width">200dp</dimen>
@@ -26,4 +26,6 @@
     <dimen name="photo_img_size">150dp</dimen>
     <dimen name="anim_duration">500</dimen>
     <dimen name="spacing_30">30dp</dimen>
+    <dimen name="spacing_2">2dp</dimen>
+ <dimen name="spacing_16">16dp</dimen>
 </resources>

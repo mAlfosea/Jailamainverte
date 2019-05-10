@@ -6,6 +6,7 @@
         android:layout_height="@dimen/plant_bloc_size"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/spacing_2"
         app:cardBackgroundColor="@color/grey">
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
@@ -50,6 +51,7 @@
                                                         android:layout_width="@dimen/modify_infos_button_size"
                                                         android:layout_height="@dimen/modify_infos_button_size"
                                                         app:layout_constraintTop_toTopOf="@id/plantName"
+                                                        app:layout_constraintBottom_toBottomOf="@+id/plantName"
                                                         app:layout_constraintLeft_toRightOf="@id/plantName"
                                                         android:layout_marginLeft="@dimen/spacing_20"
                                                         android:background="@drawable/ic_plant_name_edit_img"/>
@@ -61,7 +63,6 @@
                                                      app:layout_constraintTop_toBottomOf="@id/plantName"
                                                      app:layout_constraintLeft_toRightOf="@id/plantImg"
                                                      android:layout_marginLeft="@dimen/spacing_20"
-                                                     android:layout_marginTop="@dimen/spacing_5"
                                                      android:text="Géranium"
                                                      android:textSize="@dimen/text_size_16"
                                                      android:textStyle="italic"/>
@@ -81,7 +82,7 @@
                                                       app:layout_constraintTop_toBottomOf="@id/plantFamily"
                                                       app:layout_constraintLeft_toRightOf="@id/plantImg"
                                                       android:layout_marginLeft="@dimen/spacing_20"
-                                                      android:layout_marginTop="@dimen/spacing_10"
+                                                      android:layout_marginTop="@dimen/spacing_5"
                                                       android:background="@drawable/ic_plant_arrosage_img"/>
 
 
@@ -92,12 +93,12 @@
                                                      app:layout_constraintTop_toTopOf="@id/plantNextArrosageImg"
                                                      app:layout_constraintBottom_toBottomOf="@id/plantNextArrosageImg"
                                                      android:layout_marginLeft="@dimen/spacing_10"
-                                                     android:paddingLeft="@dimen/spacing_15"
-                                                     android:paddingRight="@dimen/spacing_15"
-                                                     android:paddingTop="@dimen/spacing_10"
-                                                     android:paddingBottom="@dimen/spacing_10"
+                                                     android:paddingLeft="@dimen/spacing_10"
+                                                     android:paddingRight="@dimen/spacing_10"
+                                                     android:paddingTop="@dimen/spacing_2"
+                                                     android:paddingBottom="@dimen/spacing_2"
                                                      android:text="Mardi 20h"
-                                                     android:background="@drawable/ic_plant_next_arrosage_socle_img"
+                                                     android:background="@drawable/shape_rectangle_radius_10"
                                                      android:gravity="center_vertical"/>
         <!--android:drawableLeft="@drawable/ic_plant_arrosage_img"
         android:drawablePadding="@dimen/spacing_10"!-->
@@ -107,18 +108,20 @@
                                                         android:layout_height="@dimen/plant_arrosage_button"
                                                         app:layout_constraintRight_toRightOf="parent"
                                                         app:layout_constraintTop_toTopOf="parent"
-                                                        app:layout_constraintBottom_toBottomOf="parent"
+                                                        android:layout_marginTop="@dimen/spacing_5"
                                                         android:layout_marginRight="@dimen/spacing_20"
-                                                        android:background="@drawable/ic_plant_arrosage_button_img"/>
+                                                        android:background="@drawable/ic_plant_arrosage_button_img"
+                                                        app:layout_constraintBottom_toTopOf="@+id/plantMoreButton"/>
 
         <androidx.appcompat.widget.AppCompatImageView android:id="@+id/plantMoreButton"
                                                       android:layout_width="@dimen/spacing_40"
                                                       android:layout_height="@dimen/spacing_40"
-                                                      app:layout_constraintTop_toBottomOf="@id/plantArrosageButton"
+                                                      app:layout_constraintTop_toBottomOf="@+id/plantArrosageButton"
                                                       app:layout_constraintBottom_toBottomOf="parent"
                                                       app:layout_constraintLeft_toLeftOf="@id/plantArrosageButton"
                                                       app:layout_constraintRight_toRightOf="@id/plantArrosageButton"
-                                                      android:background="@drawable/ic_plant_more_button"/>
+                                                      android:background="@drawable/ic_plant_more_button"
+                                                      app:layout_constraintHorizontal_bias="0.5"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
