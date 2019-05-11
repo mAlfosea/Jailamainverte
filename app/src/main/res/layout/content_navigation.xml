@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/app_bar_navigation"
-        tools:context=".MainActivity">
+        tools:context=".MainCoordinatorActivity">
+    <!-- surveiller le show in si crash -->
 
     <FrameLayout android:id="@+id/mainFragment"
             android:layout_width="match_parent"

@@ -10,7 +10,6 @@ import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.UserPlantsFragment
 import fr.perfectblue.jailamainverte.model.replaceFragment
 import kotlinx.android.synthetic.main.activity_main_coordinator.*
-import kotlinx.android.synthetic.main.app_bar_navigation.*
 
 class MainCoordinatorActivity : AppCompatActivity() {
 
