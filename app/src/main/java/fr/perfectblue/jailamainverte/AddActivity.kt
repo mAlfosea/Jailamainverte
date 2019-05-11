@@ -49,7 +49,7 @@ class AddActivity : AppCompatActivity() {
 
         createPlantButton.setOnClickListener {
             if (this.validateInputs()) {
-                var intent: Intent = Intent(this, MainActivity::class.java)
+                var intent: Intent = Intent(this, MainCoordinatorActivity::class.java)
                 startActivity(intent)
             }
         }
