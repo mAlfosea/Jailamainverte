@@ -36,4 +36,7 @@
     <string name="plant_name_edit_error">Tu dois entrer un nom :(</string>
     <string name="plant_family_edit_error">Il lui faut une famille :(</string>
     <string name="plant_cycle_edit_error">Il lui faut un cycle d\'arrosage :(</string>
+    <string name="myplants_title">Mes plantes</string>
+    <string name="take_photo_text">Prendre une photo</string>
+    <string name="choose_library_text">Depuis la gallerie</string>
 </resources>

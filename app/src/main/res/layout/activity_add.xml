@@ -31,20 +31,16 @@
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintRight_toRightOf="parent"
                    android:background="@color/blue"
+                   android:scaleType="fitXY"
+                   android:adjustViewBounds="true"
                    android:layout_marginTop="@dimen/spacing_30"/>
 
-        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantPhotoButton"
+        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/changePlantPhotoButton"
                                                         android:layout_width="@dimen/photo_button_size"
                                                         android:layout_height="@dimen/photo_button_size"
                                                         app:layout_constraintBottom_toBottomOf="@id/plantPhotoImg"
-                                                        app:layout_constraintRight_toRightOf="@id/plantPhotoImg"/>
-
-        <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantGalleryButton"
-                                                        android:layout_width="@dimen/photo_button_size"
-                                                        android:layout_height="@dimen/photo_button_size"
-                                                        app:layout_constraintBottom_toBottomOf="@id/plantPhotoImg"
-                                                        app:layout_constraintRight_toLeftOf="@id/plantPhotoButton"/>
-
+                                                        app:layout_constraintRight_toRightOf="@id/plantPhotoImg"
+                                                        android:src="@drawable/ic_menu_camera"/>
 
         <androidx.appcompat.widget.AppCompatEditText android:id="@+id/planteNameEdit"
                                                      android:layout_width="match_parent"

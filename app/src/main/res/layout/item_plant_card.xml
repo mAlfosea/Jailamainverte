@@ -6,8 +6,7 @@
         android:layout_height="@dimen/plant_bloc_size"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="@dimen/spacing_2"
-        app:cardBackgroundColor="@color/grey">
+        android:layout_marginTop="@dimen/spacing_2">
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="match_parent">
@@ -27,7 +26,8 @@
                                                       app:layout_constraintRight_toRightOf="@id/plantImg"
                                                       app:layout_constraintTop_toTopOf="@id/plantImg"
                                                       app:layout_constraintBottom_toTopOf="@id/plantImg"
-                                                      android:background="@drawable/ic_plant_mood_socle_img"/>
+                                                      android:background="@drawable/ic_plant_mood_socle_img"
+                                                      android:visibility="gone"/>
 
         <androidx.appcompat.widget.AppCompatImageView android:layout_width="@dimen/plant_icon_size"
                                                       android:layout_height="@dimen/plant_icon_size"
@@ -35,7 +35,8 @@
                                                       app:layout_constraintRight_toRightOf="@id/plantImg"
                                                       app:layout_constraintTop_toTopOf="@id/plantImg"
                                                       app:layout_constraintBottom_toTopOf="@id/plantImg"
-                                                      android:background="@drawable/ic_mood_happy"/>
+                                                      android:background="@drawable/ic_mood_happy"
+                                                      android:visibility="gone"/>
 
         <androidx.appcompat.widget.AppCompatTextView android:id="@+id/plantName"
                                                      android:layout_width="wrap_content"
@@ -44,7 +45,7 @@
                                                      app:layout_constraintLeft_toRightOf="@id/plantImg"
                                                      android:layout_marginLeft="@dimen/spacing_20"
                                                      android:text="Géronimo"
-                                                     android:textSize="@dimen/text_size_24"
+                                                     android:textSize="@dimen/text_size_18"
                                                      android:textStyle="bold"/>
 
         <androidx.appcompat.widget.AppCompatImageButton android:id="@+id/plantEditNameButton"
@@ -121,7 +122,8 @@
                                                       app:layout_constraintLeft_toLeftOf="@id/plantArrosageButton"
                                                       app:layout_constraintRight_toRightOf="@id/plantArrosageButton"
                                                       android:background="@drawable/ic_plant_more_button"
-                                                      app:layout_constraintHorizontal_bias="0.5"/>
+                                                      app:layout_constraintHorizontal_bias="0.5"
+                                                      android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

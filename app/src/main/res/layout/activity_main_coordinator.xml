@@ -5,14 +5,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <include layout="@layout/content_navigation"/>
+    <include layout="@layout/main_content"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar android:id="@+id/bottomAppBar"
                                                            android:layout_gravity="bottom"
                                                            android:layout_width="match_parent"
                                                            android:layout_height="wrap_content"
                                                            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-                                                           app:navigationIcon="@drawable/ic_add_plant">
+                                                           app:navigationIcon="@drawable/ic_menu_button">
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 

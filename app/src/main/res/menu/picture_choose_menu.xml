@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+                android:id="@+id/takePhotoButton"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/take_photo_text" />
+        <item
+                android:id="@+id/chooseFromGalleryButton"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/choose_library_text" />
+    </group>
+</menu>
