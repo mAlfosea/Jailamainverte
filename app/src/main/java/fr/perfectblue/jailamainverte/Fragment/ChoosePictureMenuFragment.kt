@@ -13,6 +13,7 @@ import fr.perfectblue.jailamainverte.AddActivity
 import fr.perfectblue.jailamainverte.R
 import kotlinx.android.synthetic.main.activity_add.*
 import kotlinx.android.synthetic.main.bottom_bar_sheet.*
+import kotlinx.android.synthetic.main.fragment_choose_picture_menu.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,12 +33,17 @@ class ChoosePictureMenuFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navigation_view.setNavigationItemSelectedListener { menuItem ->
+        var activityCaller: AddActivity = this.activity as AddActivity
+        choosePictureNavigation.setNavigationItemSelectedListener { menuItem ->
             // Bottom Navigation Drawer menu item clicks
             when (menuItem!!.itemId) {
                 R.id.takePhotoButton -> {
+                    this.dismiss()
+                    activityCaller.takePhoto()
                 }
                 R.id.chooseFromGalleryButton -> {
+                    this.dismiss()
+                    activityCaller.selectImageInAlbum()
                 }
             }
             true

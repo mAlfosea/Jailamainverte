@@ -52,9 +52,9 @@ class AddActivity : AppCompatActivity() {
 
         changePlantPhotoButton.setOnClickListener {
             val choosePictureMode = ChoosePictureMenuFragment()
-            //choosePictureMode.show(supportFragmentManager, choosePictureMode.tag)
+            choosePictureMode.show(supportFragmentManager, choosePictureMode.tag)
             //this.takePhoto()
-            this.selectImageInAlbum()
+            //this.selectImageInAlbum()
         }
 
         createPlantButton.setOnClickListener {
