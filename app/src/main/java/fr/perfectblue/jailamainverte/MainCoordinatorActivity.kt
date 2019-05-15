@@ -6,15 +6,23 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.UserPlantsFragment
+import fr.perfectblue.jailamainverte.model.Plant
 import fr.perfectblue.jailamainverte.model.replaceFragment
 import kotlinx.android.synthetic.main.activity_main_coordinator.*
+import okio.Okio
+import java.io.IOException
+import java.nio.charset.Charset
 
 class MainCoordinatorActivity : AppCompatActivity() {
 
     companion object {
         const val NAME = ""
+        var USER_PLANTS: List<Plant> = emptyList()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,12 +31,22 @@ class MainCoordinatorActivity : AppCompatActivity() {
         setSupportActionBar(bottomAppBar)
         replaceFragment(UserPlantsFragment())
 
+        this.init()
+
         add_plant_floating_button.setOnClickListener { _ ->
-            /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()*/
             var intent: Intent = Intent(this, AddActivity::class.java)
             //intent.putExtra(NAME, "Géronimo")
             startActivity(intent)
+        }
+    }
+
+    private fun init() {
+        var userPlantsTemp = this.getAllPlants()
+        if (userPlantsTemp != null) {
+            USER_PLANTS = userPlantsTemp
+            for (plant in USER_PLANTS) {
+                println(plant.plantName)
+            }
         }
     }
 
@@ -52,4 +70,23 @@ class MainCoordinatorActivity : AppCompatActivity() {
         return true
     }
 
+    private fun getAllPlants(): List<Plant>? {
+        val type = Types.newParameterizedType(List::class.java, Plant::class.java)
+        val moshi = Moshi.Builder().build()
+        val jsonAdapter: JsonAdapter<List<Plant>> = moshi.adapter(type)
+
+        return jsonAdapter.fromJson(this.loadJsonFromAssets("plants.json"))
+    }
+
+    private fun loadJsonFromAssets(filename: String): String {
+        try {
+            val input = assets.open(filename)
+            val source = Okio.buffer(Okio.source(input))
+            return source.readByteString().string(Charset.forName("utf-8"))
+        } catch (error: IOException) {
+            error.printStackTrace()
+        }
+
+        return ""
+    }
 }

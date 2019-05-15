@@ -1,0 +1,20 @@
+[
+  {
+    "plantName" : "Geronimo",
+    "plantFamily" : 3,
+    "nextArrosage" : "6/10",
+    "arrosageCycle" : "4"
+  },
+  {
+    "plantName" : "Bobby",
+    "plantFamily" : 5,
+    "nextArrosage" : "6/10",
+    "arrosageCycle" : "2"
+  },
+  {
+    "plantName" : "Figys",
+    "plantFamily" : 2,
+    "nextArrosage" : "6/10",
+    "arrosageCycle" : "4"
+  }
+]

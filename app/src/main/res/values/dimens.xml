@@ -30,4 +30,5 @@
  <dimen name="spacing_16">16dp</dimen>
     <dimen name="text_size_18">18sp</dimen>
  <dimen name="spacing_50">50dp</dimen>
+    <dimen name="calendar_day_size">75dp</dimen>
 </resources>

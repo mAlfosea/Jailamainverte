@@ -13,8 +13,13 @@ import android.view.View
 import android.widget.*
 import androidx.core.content.FileProvider
 import androidx.core.view.get
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.ChoosePictureMenuFragment
+import fr.perfectblue.jailamainverte.adapters.CalendarAdapter
+import fr.perfectblue.jailamainverte.model.SliderLayoutManager
+import fr.perfectblue.jailamainverte.model.Tools
 import kotlinx.android.synthetic.main.activity_add.*
 import java.io.File
 import java.io.IOException
@@ -30,6 +35,8 @@ class AddActivity : AppCompatActivity() {
     }
 
     lateinit var spinner: Spinner
+    lateinit var calendarRecycler: RecyclerView
+    var dates = ArrayList<String>(1)
     var currentPhotoPath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +44,8 @@ class AddActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add)
         //activityTitle.text = intent.getStringExtra(MainActivity.NAME)
 
-        this.spinner = plantFamilySpinner
-        val adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, resources.getStringArray(R.array.plants))
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-        this.spinner.adapter = adapter
+        this.init()
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
             }
@@ -63,6 +67,64 @@ class AddActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun init() {
+        this.setPlantsSpinner()
+        this.setCalendarRecycler()
+    }
+
+    private fun generateDates(): ArrayList<String> {
+        //this.dates = resources.getStringArray(R.array.dates)
+        this.dates.add("1")
+        this.dates.add("14")
+        this.dates.add("12")
+        this.dates.add("5")
+        this.dates.add("7")
+        this.dates.add("8")
+        this.dates.add("1")
+        this.dates.add("21")
+        this.dates.add("1")
+        this.dates.add("3")
+        this.dates.add("8")
+        this.dates.add("1")
+        return this.dates
+    }
+
+    private fun setPlantsSpinner() {
+        this.spinner = plantFamilySpinner
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, resources.getStringArray(R.array.plants))
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+        this.spinner.adapter = adapter
+    }
+
+    private fun setCalendarRecycler() {
+        this.calendarRecycler = lastWateringCalendar
+        //this.calendarRecycler.layoutManager = LinearLayoutManager(this)
+
+        val padding: Int = Tools.getScreenWidth(this)/2 - Tools.dpToPx(this, 40)
+        this.calendarRecycler.setPadding(padding, 0, padding, 0)
+
+        // Setting layout manager
+        this.calendarRecycler.layoutManager = SliderLayoutManager(this).apply {
+            callback = object : SliderLayoutManager.OnItemSelectedListener {
+                override fun onItemSelected(layoutPosition: Int) {
+                    //tvSelectedItem.setText(dates[layoutPosition])
+                }
+            }
+        }
+
+        this.calendarRecycler.adapter = CalendarAdapter(this.generateDates())
+
+        /*this.calendarRecycler.adapter = SliderAdapter().apply {
+            setData(dates)
+            callback = object : SliderAdapter.Callback {
+                override fun onItemClicked(view: View) {
+                    rvHorizontalPicker.smoothScrollToPosition(rvHorizontalPicker.getChildLayoutPosition(view))
+                }
+            }
+        }*/
     }
 
     private fun validateInputs(): Boolean {

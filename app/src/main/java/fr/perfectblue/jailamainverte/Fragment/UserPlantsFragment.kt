@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.perfectblue.jailamainverte.MainCoordinatorActivity
 
 import fr.perfectblue.jailamainverte.R
 import fr.perfectblue.jailamainverte.adapters.PlantAdapter
@@ -21,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
 
 class UserPlantsFragment : Fragment() {
 
-    var userPlantArray = ArrayList<Plant>(4)
+    var userPlantArray: List<Plant> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,10 +44,7 @@ class UserPlantsFragment : Fragment() {
     }
 
     private fun seedItems () {
-        val plantsArray = resources.getStringArray(R.array.userPlants)
-        for (plant in plantsArray) {
-            this.userPlantArray.add(Plant(plant))
-        }
+        this.userPlantArray = MainCoordinatorActivity.USER_PLANTS
     }
 
 }

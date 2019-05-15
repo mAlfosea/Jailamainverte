@@ -9,7 +9,7 @@ import fr.perfectblue.jailamainverte.model.inflate
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_plant_card.view.*
 
-class PlantAdapter(var items:ArrayList<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
+class PlantAdapter(var items:List<Plant>): RecyclerView.Adapter<PlantAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.item_plant_card))
     }
