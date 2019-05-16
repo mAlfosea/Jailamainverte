@@ -30,7 +30,7 @@
                    app:layout_constraintTop_toTopOf="parent"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintRight_toRightOf="parent"
-                   android:background="@color/blue"
+                   android:background="@drawable/shape_cicrcle_calendar"
                    android:scaleType="fitXY"
                    android:adjustViewBounds="true"
                    android:layout_marginTop="@dimen/spacing_30"/>
@@ -82,21 +82,23 @@
                   android:gravity="center"
                   android:layout_margin="@dimen/spacing_30"/>
 
-        <ImageView android:layout_width="@dimen/calendar_day_size" android:layout_height="@dimen/calendar_day_size"
+        <ImageView android:layout_width="@dimen/calendar_day_size"
+                   android:layout_height="@dimen/calendar_day_size"
                    app:layout_constraintTop_toTopOf="@id/lastWateringCalendar"
                    app:layout_constraintBottom_toBottomOf="@id/lastWateringCalendar"
                    app:layout_constraintLeft_toLeftOf="@id/lastWateringCalendar"
                    app:layout_constraintRight_toRightOf="@id/lastWateringCalendar"
-                   android:background="@color/blue"
-        android:visibility="visible"/>
+                   android:background="@drawable/shape_cicrcle_calendar"
+                   android:visibility="visible"/>
 
         <androidx.recyclerview.widget.RecyclerView android:id="@+id/lastWateringCalendar"
-                                                   android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   android:layout_width="wrap_content"
+                                                   android:layout_height="wrap_content"
                                                    app:layout_constraintTop_toBottomOf="@id/lastWateringText"
                                                    app:layout_constraintLeft_toLeftOf="parent"
                                                    app:layout_constraintRight_toRightOf="parent"
                                                    android:clipToPadding="false"
-        android:layout_marginTop="@dimen/spacing_10"/>
+                                                   android:layout_marginTop="@dimen/spacing_10"/>
 
         <TextView android:id="@+id/wateringCycleText"
                   android:layout_width="wrap_content" android:layout_height="wrap_content"

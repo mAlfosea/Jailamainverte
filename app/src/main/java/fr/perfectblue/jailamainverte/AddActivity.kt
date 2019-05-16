@@ -18,13 +18,18 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.ChoosePictureMenuFragment
 import fr.perfectblue.jailamainverte.adapters.CalendarAdapter
+import fr.perfectblue.jailamainverte.model.CalendarDate
 import fr.perfectblue.jailamainverte.model.SliderLayoutManager
 import fr.perfectblue.jailamainverte.model.Tools
 import kotlinx.android.synthetic.main.activity_add.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
+import java.time.DayOfWeek
+import java.time.LocalDate
+import java.time.Year
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AddActivity : AppCompatActivity() {
@@ -37,6 +42,7 @@ class AddActivity : AppCompatActivity() {
     lateinit var spinner: Spinner
     lateinit var calendarRecycler: RecyclerView
     var dates = ArrayList<String>(1)
+    var localDates = ArrayList<CalendarDate>(1)
     var currentPhotoPath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +63,6 @@ class AddActivity : AppCompatActivity() {
         changePlantPhotoButton.setOnClickListener {
             val choosePictureMode = ChoosePictureMenuFragment()
             choosePictureMode.show(supportFragmentManager, choosePictureMode.tag)
-            //this.takePhoto()
-            //this.selectImageInAlbum()
         }
 
         createPlantButton.setOnClickListener {
@@ -74,8 +78,20 @@ class AddActivity : AppCompatActivity() {
         this.setCalendarRecycler()
     }
 
-    private fun generateDates(): ArrayList<String> {
+    private fun generateDates(): ArrayList<CalendarDate> {
         //this.dates = resources.getStringArray(R.array.dates)
+        var calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, -30)
+        for (i in 0 until 30) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+            this.localDates.add(CalendarDate(
+                calendar.get(Calendar.YEAR).toString(),
+                calendar.get(Calendar.MONTH).toString(),
+                calendar.get(Calendar.DAY_OF_MONTH).toString(),
+                resources.getStringArray(R.array.plants)[calendar.get(Calendar.DAY_OF_WEEK)]))
+        }
+        println(this.localDates.size)
+
         this.dates.add("1")
         this.dates.add("14")
         this.dates.add("12")
@@ -88,7 +104,7 @@ class AddActivity : AppCompatActivity() {
         this.dates.add("3")
         this.dates.add("8")
         this.dates.add("1")
-        return this.dates
+        return this.localDates
     }
 
     private fun setPlantsSpinner() {
@@ -101,30 +117,27 @@ class AddActivity : AppCompatActivity() {
 
     private fun setCalendarRecycler() {
         this.calendarRecycler = lastWateringCalendar
-        //this.calendarRecycler.layoutManager = LinearLayoutManager(this)
 
         val padding: Int = Tools.getScreenWidth(this)/2 - Tools.dpToPx(this, 40)
         this.calendarRecycler.setPadding(padding, 0, padding, 0)
 
-        // Setting layout manager
         this.calendarRecycler.layoutManager = SliderLayoutManager(this).apply {
             callback = object : SliderLayoutManager.OnItemSelectedListener {
                 override fun onItemSelected(layoutPosition: Int) {
                     //tvSelectedItem.setText(dates[layoutPosition])
+                    println("LE NUMERO SELECTIONNE: ${localDates[layoutPosition]}")
                 }
             }
         }
-
-        this.calendarRecycler.adapter = CalendarAdapter(this.generateDates())
-
-        /*this.calendarRecycler.adapter = SliderAdapter().apply {
-            setData(dates)
-            callback = object : SliderAdapter.Callback {
+        //his.calendarRecycler.adapter = CalendarAdapter(this.generateDates())
+        this.calendarRecycler.adapter = CalendarAdapter(this.generateDates()).apply {
+            callback = object : CalendarAdapter.Callback {
                 override fun onItemClicked(view: View) {
-                    rvHorizontalPicker.smoothScrollToPosition(rvHorizontalPicker.getChildLayoutPosition(view))
+                    lastWateringCalendar.smoothScrollToPosition(lastWateringCalendar.getChildLayoutPosition(view))
                 }
             }
-        }*/
+        }
+        lastWateringCalendar.smoothScrollToPosition(this.dates.size - 1)
     }
 
     private fun validateInputs(): Boolean {

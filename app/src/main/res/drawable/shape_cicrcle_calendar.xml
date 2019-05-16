@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="oval">
+
+    <!--If your shape requires only one solid color-->
+    <solid
+            android:color="@color/calendarCircle" />
+
+</shape>

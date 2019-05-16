@@ -3,6 +3,7 @@ package fr.perfectblue.jailamainverte
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,10 +12,17 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.UserPlantsFragment
+import fr.perfectblue.jailamainverte.model.Course
 import fr.perfectblue.jailamainverte.model.Plant
 import fr.perfectblue.jailamainverte.model.replaceFragment
+import fr.perfectblue.jailamainverte.network.CoursesService
 import kotlinx.android.synthetic.main.activity_main_coordinator.*
 import okio.Okio
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -22,7 +30,10 @@ class MainCoordinatorActivity : AppCompatActivity() {
 
     companion object {
         const val NAME = ""
+        const val URL = "https://mobile-courses-server.herokuapp.com"
+        val TAG = MainCoordinatorActivity::class.java.simpleName
         var USER_PLANTS: List<Plant> = emptyList()
+        lateinit var retrofitInstance: Retrofit
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +52,9 @@ class MainCoordinatorActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        this.createRetroFitInstance()
+        this.sendHTTPSRquest()
+
         var userPlantsTemp = this.getAllPlants()
         if (userPlantsTemp != null) {
             USER_PLANTS = userPlantsTemp
@@ -48,6 +62,36 @@ class MainCoordinatorActivity : AppCompatActivity() {
                 println(plant.plantName)
             }
         }
+    }
+
+    private fun sendHTTPSRquest() {
+        val service = retrofitInstance.create(CoursesService::class.java)
+        val request = service.listCourses()
+        request.enqueue (object : Callback<List<Course>> {
+            override fun onFailure(call: Call<List<Course>>, t: Throwable) {
+                Log.i(TAG, "FAIL")
+            }
+
+            override fun onResponse(call: Call<List<Course>>, response: Response<List<Course>>) {
+                Log.i(TAG, "OK")
+                Log.i(TAG, "SIZE: ${response.body()?.size}")
+                Log.i(TAG, "${response.body()?.get(3)?.title}")
+
+                val result = response.body()
+
+                if(result != null) {
+                    println(result[3].img)
+                }
+            }
+
+        })
+    }
+
+    private fun createRetroFitInstance() {
+        retrofitInstance = Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

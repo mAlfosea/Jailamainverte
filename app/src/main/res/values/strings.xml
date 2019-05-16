@@ -8,6 +8,25 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="add_title">Ajouter une plante</string>
+    <string name="day_1">L</string>
+    <string name="day_2">M</string>
+    <string name="day_3">M</string>
+    <string name="day_4">J</string>
+    <string name="day_5">V</string>
+    <string name="day_6">S</string>
+    <string name="day_7">D</string>
+    <string name="month_1">Jan.</string>
+    <string name="month_2">Fev.</string>
+    <string name="month_3">Mar.</string>
+    <string name="month_4">Avr.</string>
+    <string name="month_5">Mai</string>
+    <string name="month_6">Jui.</string>
+    <string name="month_7">Jui.</string>
+    <string name="month_8">Aou.</string>
+    <string name="month_9">Sep.</string>
+    <string name="month_10">Oct.</string>
+    <string name="month_11">Nov.</string>
+    <string name="month_12">Dec.</string>
     <string-array name="plants">
         <item>Aucune</item>
         <item>Rose</item>

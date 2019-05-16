@@ -6,4 +6,5 @@
     <color name="green">#4C9948</color>
     <color name="grey">#EEEDED</color>
     <color name="blue">#3E88BB</color>
+    <color name="calendarCircle">#F44336</color>
 </resources>
