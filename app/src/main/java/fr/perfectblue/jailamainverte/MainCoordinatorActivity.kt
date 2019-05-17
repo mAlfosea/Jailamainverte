@@ -30,10 +30,13 @@ class MainCoordinatorActivity : AppCompatActivity() {
 
     companion object {
         const val NAME = ""
-        const val URL = "https://mobile-courses-server.herokuapp.com"
-        val TAG = MainCoordinatorActivity::class.java.simpleName
-        var USER_PLANTS: List<Plant> = emptyList()
+
         lateinit var retrofitInstance: Retrofit
+        const val URL = "https://mobile-courses-server.herokuapp.com"
+
+        val TAG = MainCoordinatorActivity::class.java.simpleName
+
+        var USER_PLANTS: List<Plant> = emptyList()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

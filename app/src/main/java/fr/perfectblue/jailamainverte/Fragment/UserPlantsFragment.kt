@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.perfectblue.jailamainverte.App
 import fr.perfectblue.jailamainverte.MainCoordinatorActivity
 
 import fr.perfectblue.jailamainverte.R
 import fr.perfectblue.jailamainverte.adapters.PlantAdapter
 import fr.perfectblue.jailamainverte.model.Plant
 import kotlinx.android.synthetic.main.fragment_user_plants.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,10 +43,13 @@ class UserPlantsFragment : Fragment() {
 
     private fun initialyzeUI() {
         userPlantsRecycler.layoutManager = LinearLayoutManager(context)
-        userPlantsRecycler.adapter = PlantAdapter(this.userPlantArray)
+        userPlantsRecycler.adapter = PlantAdapter(App.plants)
     }
 
     private fun seedItems () {
+        doAsync {
+            App.plants = App.plantDb.requestPlants()
+        }
         this.userPlantArray = MainCoordinatorActivity.USER_PLANTS
     }
 

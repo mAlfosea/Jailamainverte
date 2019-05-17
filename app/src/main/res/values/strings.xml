@@ -8,25 +8,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="add_title">Ajouter une plante</string>
-    <string name="day_1">L</string>
-    <string name="day_2">M</string>
-    <string name="day_3">M</string>
-    <string name="day_4">J</string>
-    <string name="day_5">V</string>
-    <string name="day_6">S</string>
-    <string name="day_7">D</string>
-    <string name="month_1">Jan.</string>
-    <string name="month_2">Fev.</string>
-    <string name="month_3">Mar.</string>
-    <string name="month_4">Avr.</string>
-    <string name="month_5">Mai</string>
-    <string name="month_6">Jui.</string>
-    <string name="month_7">Jui.</string>
-    <string name="month_8">Aou.</string>
-    <string name="month_9">Sep.</string>
-    <string name="month_10">Oct.</string>
-    <string name="month_11">Nov.</string>
-    <string name="month_12">Dec.</string>
+
     <string-array name="plants">
         <item>Aucune</item>
         <item>Rose</item>
@@ -35,19 +17,29 @@
         <item>Orchidee</item>
     </string-array>
 
-    <string-array name="dates">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
+    <string-array name="days">
+        <item>D</item>
+        <item>L</item>
+        <item>M</item>
+        <item>M</item>
+        <item>J</item>
+        <item>V</item>
+        <item>S</item>
+    </string-array>
+
+    <string-array name="months">
+        <item>Jan</item>
+        <item>Fev</item>
+        <item>Mar</item>
+        <item>Avr</item>
+        <item>Mai</item>
+        <item>Jui</item>
+        <item>Jui</item>
+        <item>Aou</item>
+        <item>Sep</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

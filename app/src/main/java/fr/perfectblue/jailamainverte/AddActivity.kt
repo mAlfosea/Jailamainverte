@@ -15,13 +15,16 @@ import androidx.core.content.FileProvider
 import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.perfectblue.jailamainverte.App.Companion.plantDb
 import fr.perfectblue.jailamainverte.Fragment.BottomNavigationDrawerFragment
 import fr.perfectblue.jailamainverte.Fragment.ChoosePictureMenuFragment
 import fr.perfectblue.jailamainverte.adapters.CalendarAdapter
 import fr.perfectblue.jailamainverte.model.CalendarDate
+import fr.perfectblue.jailamainverte.model.Plant
 import fr.perfectblue.jailamainverte.model.SliderLayoutManager
 import fr.perfectblue.jailamainverte.model.Tools
 import kotlinx.android.synthetic.main.activity_add.*
+import org.jetbrains.anko.doAsync
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -41,7 +44,6 @@ class AddActivity : AppCompatActivity() {
 
     lateinit var spinner: Spinner
     lateinit var calendarRecycler: RecyclerView
-    var dates = ArrayList<String>(1)
     var localDates = ArrayList<CalendarDate>(1)
     var currentPhotoPath: String = ""
 
@@ -67,6 +69,8 @@ class AddActivity : AppCompatActivity() {
 
         createPlantButton.setOnClickListener {
             if (this.validateInputs()) {
+                doAsync { plantDb.savePlant(Plant("Gero", "3", "H", "3")) }
+
                 var intent: Intent = Intent(this, MainCoordinatorActivity::class.java)
                 startActivity(intent)
             }
@@ -79,31 +83,18 @@ class AddActivity : AppCompatActivity() {
     }
 
     private fun generateDates(): ArrayList<CalendarDate> {
-        //this.dates = resources.getStringArray(R.array.dates)
         var calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, -30)
         for (i in 0 until 30) {
             calendar.add(Calendar.DAY_OF_YEAR, 1)
+            println(calendar.time)
             this.localDates.add(CalendarDate(
                 calendar.get(Calendar.YEAR).toString(),
-                calendar.get(Calendar.MONTH).toString(),
+                resources.getStringArray(R.array.months)[calendar.get(Calendar.MONTH)],
                 calendar.get(Calendar.DAY_OF_MONTH).toString(),
-                resources.getStringArray(R.array.plants)[calendar.get(Calendar.DAY_OF_WEEK)]))
+                resources.getStringArray(R.array.days)[calendar.get(Calendar.DAY_OF_WEEK) - 1],
+                calendar.time))
         }
-        println(this.localDates.size)
-
-        this.dates.add("1")
-        this.dates.add("14")
-        this.dates.add("12")
-        this.dates.add("5")
-        this.dates.add("7")
-        this.dates.add("8")
-        this.dates.add("1")
-        this.dates.add("21")
-        this.dates.add("1")
-        this.dates.add("3")
-        this.dates.add("8")
-        this.dates.add("1")
         return this.localDates
     }
 
@@ -118,7 +109,7 @@ class AddActivity : AppCompatActivity() {
     private fun setCalendarRecycler() {
         this.calendarRecycler = lastWateringCalendar
 
-        val padding: Int = Tools.getScreenWidth(this)/2 - Tools.dpToPx(this, 40)
+        val padding: Int = Tools.getScreenWidth(this)/2 - Tools.dpToPx(this, 20)
         this.calendarRecycler.setPadding(padding, 0, padding, 0)
 
         this.calendarRecycler.layoutManager = SliderLayoutManager(this).apply {
@@ -137,7 +128,7 @@ class AddActivity : AppCompatActivity() {
                 }
             }
         }
-        lastWateringCalendar.smoothScrollToPosition(this.dates.size - 1)
+        lastWateringCalendar.smoothScrollToPosition(this.localDates.size - 1)
     }
 
     private fun validateInputs(): Boolean {

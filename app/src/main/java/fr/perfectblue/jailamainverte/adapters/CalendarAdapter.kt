@@ -48,6 +48,7 @@ class CalendarAdapter (var items: ArrayList<CalendarDate>): RecyclerView.Adapter
             //val format = formatter.format(date)
             itemView.dateText.text = date.day
             itemView.monthText.text = date.month
+            itemView.weeklyDay.text = date.weeklyDay
 
             /*itemView.setOnClickListener {
                 itemView.dateText.text = "0"
